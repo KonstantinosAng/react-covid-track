@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import { MenuItem, FormControl, Select }  from '@material-ui/core';
+import InfoBox from './InfoBox';
 
 const API_URL = 'https://disease.sh/v3/covid-19/countries';
 
@@ -51,7 +52,10 @@ function App() {
       
       {/* STATISTICS */}
       <div className="app__stats">
-        
+        <InfoBox title="Coronavirus cases" total={2000}/>
+        <InfoBox title="Recovered" total={3000}/>
+        <InfoBox title="Deaths" total='4000'/>
+
       </div>
     </div>
   );
