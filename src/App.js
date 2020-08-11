@@ -4,6 +4,7 @@ import { MenuItem, FormControl, Select, Card, CardContent }  from '@material-ui/
 import InfoBox from './InfoBox';
 import Map from './Map';
 import Table from './Table';
+import { sortData } from './utils'
 
 const API_URL = 'https://disease.sh/v3/covid-19/countries';
 const API_ALL_URL = 'https://disease.sh/v3/covid-19/all';
@@ -33,7 +34,8 @@ function App() {
             name: country.country, // full name Greece
             value: country.countryInfo.iso2 // short name GR 
           }));
-        setTableData(data);
+        const sortedData = sortData(data);
+        setTableData(sortedData);
         setCountries(countries);
       });
     };
