@@ -3,6 +3,7 @@ import './App.css';
 import { MenuItem, FormControl, Select, Card, CardContent }  from '@material-ui/core';
 import InfoBox from './InfoBox';
 import Map from './Map';
+import Table from './Table';
 
 const API_URL = 'https://disease.sh/v3/covid-19/countries';
 const API_ALL_URL = 'https://disease.sh/v3/covid-19/all';
