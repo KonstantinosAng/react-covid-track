@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import { MenuItem, FormControl, Select }  from '@material-ui/core';
+import { MenuItem, FormControl, Select, Card, CardContent }  from '@material-ui/core';
 import InfoBox from './InfoBox';
+import Map from './Map';
 
 const API_URL = 'https://disease.sh/v3/covid-19/countries';
 
@@ -34,29 +35,49 @@ function App() {
 
   return (
     <div className="app">
-      {/* HEADER */}
-      <div className='app__header'>        
-      <h1> COVID-19 TRACKER </h1>
-      <FormControl className="app__dropdown">
-        <Select variant="outlined" value={country} onChange={onCountryClicked}>
-          <MenuItem value='worldwide'>Worldwide</MenuItem>
-          {/* Loop through countries to create option in menu */}
-          {
-            countries.map((country) => (
-              <MenuItem value={country.value}>{country.name}</MenuItem>
-            ))
-          }
-        </Select>
-      </FormControl>
-      </div>
-      
-      {/* STATISTICS */}
-      <div className="app__stats">
-        <InfoBox title="Coronavirus cases" total={2000}/>
-        <InfoBox title="Recovered" total={3000}/>
-        <InfoBox title="Deaths" total='4000'/>
+
+      {/* LEFT COLUMN */}
+      <div className='left_column'>
+
+        {/* HEADER */}
+        <div className='app__header'>        
+        <h1> COVID-19 TRACKER </h1>
+        <FormControl className="app__dropdown">
+          <Select variant="outlined" value={country} onChange={onCountryClicked}>
+            <MenuItem value='worldwide'>Worldwide</MenuItem>
+            {/* Loop through countries to create option in menu */}
+            {
+              countries.map((country) => (
+                <MenuItem value={country.value}>{country.name}</MenuItem>
+              ))
+            }
+          </Select>
+        </FormControl>
+        </div>
+
+        {/* INFO STATISTICS BELOW HEADER */}
+        <div className="app__stats">
+          <InfoBox title="Coronavirus cases" total={2000}/>
+          <InfoBox title="Recovered" total={3000}/>
+          <InfoBox title="Deaths" total='4000'/>
+        </div>
+
+        {/* MAP */}
+        <Map />
 
       </div>
+
+      {/* RIGHT COLUMN */}
+      <Card className='right_column'>
+        <CardContent>
+          
+        {/* LEADERBOARD */}
+
+        {/* GRAPH */}
+
+        </CardContent>
+      </Card>
+
     </div>
   );
 }
