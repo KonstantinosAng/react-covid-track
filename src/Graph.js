@@ -10,14 +10,14 @@ function Graph() {
     fetch(API_CHART_URL)
     .then((response) => response.json())
     .then((data) => {
-
+      console.log(data);
     })
   }, [])
 
   return (
     <div>
       <h1> I am a graph </h1>
-      <Line data options/>
+      {/* <Line data options/> */}
     </div>
   )
 }
