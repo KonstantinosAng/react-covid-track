@@ -5,14 +5,24 @@ import InfoBox from './InfoBox';
 import Map from './Map';
 
 const API_URL = 'https://disease.sh/v3/covid-19/countries';
+const API_ALL_URL = 'https://disease.sh/v3/covid-19/all';
 
 function App() {
 
   const [countries, setCountries] = useState([]);
   const [country, setCountry] = useState('worldwide');
+  const [countryInfo, setCountryInfo] = useState({});
+  const [tableData, setTableData] = useState([]);
 
   useEffect(() => {
+    fetch(API_ALL_URL)
+    .then(response => response.json())
+    .then(data => {
+      setCountryInfo(data);
+    })
+  }, [])
 
+  useEffect(() => {
     const getCountriesData = async () => {
       await fetch (API_URL)
       .then((response) => response.json())
@@ -22,15 +32,22 @@ function App() {
             name: country.country, // full name Greece
             value: country.countryInfo.iso2 // short name GR 
           }));
+        setTableData(data);
         setCountries(countries);
       });
     };
     getCountriesData();
-  }, [countries]);
+  }, []);
 
   const onCountryClicked = async (event) => {
     const countryCode = event.target.value;
-    setCountry(countryCode);
+    const url = countryCode === 'worldwide' ? API_ALL_URL : API_URL + `/${countryCode}`;
+    await fetch(url)
+    .then(response => response.json())
+    .then(data => {
+      setCountry(countryCode);
+      setCountryInfo(data);
+    })
   };
 
   return (
@@ -57,9 +74,9 @@ function App() {
 
         {/* INFO STATISTICS BELOW HEADER */}
         <div className="app__stats">
-          <InfoBox title="Coronavirus cases" total={2000}/>
-          <InfoBox title="Recovered" total={3000}/>
-          <InfoBox title="Deaths" total='4000'/>
+          <InfoBox title="Coronavirus cases" cases={countryInfo.todayCases} total={countryInfo.cases}/>
+          <InfoBox title="Recovered" cases={countryInfo.todayRecovered} total={countryInfo.recovered}/>
+          <InfoBox title="Deaths" cases={countryInfo.todayDeaths} total={countryInfo.deaths}/>
         </div>
 
         {/* MAP */}
@@ -70,9 +87,9 @@ function App() {
       {/* RIGHT COLUMN */}
       <Card className='right_column'>
         <CardContent>
-          
-        {/* LEADERBOARD */}
 
+        {/* LEADERBOARD */}
+        <Table countries={tableData}/>
         {/* GRAPH */}
 
         </CardContent>
