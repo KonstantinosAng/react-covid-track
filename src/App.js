@@ -88,7 +88,7 @@ function App() {
       {/* RIGHT COLUMN */}
       <Card className='right_column'>
         <CardContent>
-
+        <h3> Live Cases </h3>
         {/* LEADERBOARD */}
         <Table countries={tableData}/>
         {/* GRAPH */}
