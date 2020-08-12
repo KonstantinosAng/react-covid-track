@@ -20,6 +20,7 @@ function App() {
   const [mapCenter, setMapCenter] = useState({ lat: 34.8076, lng: -40.4796 });
   const [mapZoom, setMapZoom] = useState(3);
   const [mapCountries, setMapCountries] = useState([]);
+  const [casesType, setCasesType] = useState('cases');
 
   useEffect(() => {
     const setInfo = async () => {
@@ -88,24 +89,25 @@ function App() {
 
         {/* INFO STATISTICS BELOW HEADER */}
         <div className="app__stats">
-          <InfoBox title="Coronavirus cases" cases={prettyPrintStat(countryInfo.todayCases)} total={countryInfo.cases}/>
-          <InfoBox title="Recovered" cases={countryInfo.todayRecovered} total={countryInfo.recovered}/>
-          <InfoBox title="Deaths" cases={countryInfo.todayDeaths} total={countryInfo.deaths}/>
+          <InfoBox isRed active={casesType==='cases'} onClick={e => setCasesType('cases')} title="Coronavirus cases" cases={prettyPrintStat(countryInfo.todayCases)} total={prettyPrintStat(countryInfo.cases)}/>
+          <InfoBox active={casesType==='recovered'} onClick={e => setCasesType('recovered')} title="Recovered" cases={prettyPrintStat(countryInfo.todayRecovered)} total={prettyPrintStat(countryInfo.recovered)}/>
+          <InfoBox isRed active={casesType==='deaths'} onClick={e => setCasesType('deaths')} title="Deaths" cases={prettyPrintStat(countryInfo.todayDeaths)} total={prettyPrintStat(countryInfo.deaths)}/>
         </div>
 
         {/* MAP */}
-        <Map countries={mapCountries} center={mapCenter} zoom={mapZoom} />
+        <Map casesType={casesType} countries={mapCountries} center={mapCenter} zoom={mapZoom} />
 
       </div>
 
       {/* RIGHT COLUMN */}
       <Card className='right_column'>
         <CardContent>
-        <h3> Live Cases </h3>
+        <h3> Leaderboard </h3>
         {/* LEADERBOARD */}
         <Table countries={tableData}/>
         {/* GRAPH */}
-        <Graph />
+        <h3> New {casesType} </h3>
+        <Graph casesType={casesType}/>
         </CardContent>
       </Card>
 
