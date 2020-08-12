@@ -7,6 +7,10 @@ body {
   background-color: #f5f6fa;
 }
 
+.app__dropdown {
+  background-color: white;
+}
+
 .app {
   display: flex;
   justify-content: space-evenly;
@@ -22,6 +26,11 @@ body {
   align-items: center;
   margin-bottom: 1rem;
   justify-content: space-between;
+}
+
+.app__header > h1 {
+  color: #fc3c3c;
+  font-size: 2rem;
 }
 
 .app__stats {
