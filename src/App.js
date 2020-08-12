@@ -5,6 +5,7 @@ import InfoBox from './InfoBox';
 import Map from './Map';
 import Table from './Table';
 import Graph from './Graph';
+import 'leaflet/dist/leaflet.css';
 import { sortData } from './utils';
 
 const API_URL = 'https://disease.sh/v3/covid-19/countries';
@@ -16,6 +17,9 @@ function App() {
   const [country, setCountry] = useState('worldwide');
   const [countryInfo, setCountryInfo] = useState({});
   const [tableData, setTableData] = useState([]);
+  const [mapCenter, setMapCenter] = useState({ lat: 34.8076, lng: -40.4796 });
+  const [mapZoom, setMapZoom] = useState(3);
+  const [mapCountries, setMapCountries] = useState([]);
 
   useEffect(() => {
     fetch(API_ALL_URL)
@@ -37,6 +41,7 @@ function App() {
           }));
         const sortedData = sortData(data);
         setTableData(sortedData);
+        setMapCountries(data);
         setCountries(countries);
       });
     };
@@ -51,6 +56,8 @@ function App() {
     .then(data => {
       setCountry(countryCode);
       setCountryInfo(data);
+      setMapCenter([data.countryInfo.lat, data.countryInfo.long]);
+      setMapZoom(4);
     })
   };
 
@@ -84,7 +91,7 @@ function App() {
         </div>
 
         {/* MAP */}
-        <Map />
+        <Map countries={mapCountries} center={mapCenter} zoom={mapZoom} />
 
       </div>
 
