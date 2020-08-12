@@ -66,7 +66,6 @@ function Graph({ caseType = 'cases' }) {
 
   return (
     <div>
-      <h1> New Cases </h1>
       {data?.length > 0 && (
         <Line 
           options={options}
