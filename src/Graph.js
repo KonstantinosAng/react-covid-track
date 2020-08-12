@@ -47,7 +47,7 @@ const options = {
   },
 }
 
-function Graph({ caseType = 'cases', ...props}) {
+function Graph({ casesType='cases', ...props}) {
   const [data, setData] = useState({});
 
   const API_CHART_URL = 'https://disease.sh/v3/covid-19/historical/all?lastdays=120';
@@ -57,12 +57,12 @@ function Graph({ caseType = 'cases', ...props}) {
       await fetch(API_CHART_URL)
       .then((response) => response.json())
       .then((data) => {
-        const chartData = buildChartData(data);
+        const chartData = buildChartData(data, casesType);
         setData(chartData);
       })
     }
     fetchData();
-  }, [caseType]);
+  }, [casesType]);
 
   return (
     <div className={props.className}>
