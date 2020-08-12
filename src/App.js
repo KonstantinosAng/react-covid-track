@@ -102,12 +102,14 @@ function App() {
       {/* RIGHT COLUMN */}
       <Card className='right_column'>
         <CardContent>
-        <h3> Leaderboard </h3>
-        {/* LEADERBOARD */}
-        <Table countries={tableData}/>
-        {/* GRAPH */}
-        <h3> New {casesType} </h3>
-        <Graph casesType={casesType}/>
+          <div className="app__information">
+          <h3> Leaderboard </h3>
+          {/* LEADERBOARD */}
+          <Table countries={tableData}/>
+          {/* GRAPH */}
+          <h3 className="app__graph_title"> New {casesType} </h3>
+          <Graph className="app__graph" casesType={casesType}/>
+          </div>
         </CardContent>
       </Card>
 
