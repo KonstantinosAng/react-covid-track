@@ -22,11 +22,14 @@ function App() {
   const [mapCountries, setMapCountries] = useState([]);
 
   useEffect(() => {
-    fetch(API_ALL_URL)
-    .then(response => response.json())
-    .then(data => {
-      setCountryInfo(data);
-    })
+    const setInfo = async () => {
+      fetch(API_ALL_URL)
+      .then(response => response.json())
+      .then(data => {
+        setCountryInfo(data);
+      })
+    };
+    setInfo();
   }, [])
 
   useEffect(() => {
