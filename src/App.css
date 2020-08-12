@@ -50,7 +50,10 @@ body {
 
 .app__stats {
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between !important;
+  margin-top: 1rem;
 }
 
 .left_column {
@@ -64,5 +67,9 @@ body {
 @media (max-width: 990px) {
   .app {
     flex-direction: column;
+  }
+  
+  .right_column {
+    margin-top: 1rem;
   }
 }
