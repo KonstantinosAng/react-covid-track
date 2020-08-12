@@ -17,8 +17,23 @@ body {
   padding: 1rem;
 }
 
-.left_column {
-  flex: 0.9;
+.right_column {
+  display: flex;
+  flex-direction: column;
+}
+
+.right_column .MuiCardContent -root{
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.app__graph {
+  flex-grow: 1;
+}
+
+.app__graph_title {
+  margin-top: 20px;
 }
 
 .app__header {
@@ -36,6 +51,14 @@ body {
 .app__stats {
   display: flex;
   justify-content: space-between;
+}
+
+.left_column {
+  flex: 0.9;
+}
+
+.app__information > h3:last-of-type {
+  margin-top: 1rem;
 }
 
 @media (max-width: 990px) {
