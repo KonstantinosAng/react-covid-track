@@ -6,7 +6,7 @@ import Map from './Map';
 import Table from './Table';
 import Graph from './Graph';
 import 'leaflet/dist/leaflet.css';
-import { sortData } from './utils';
+import { sortData, prettyPrintStat } from './utils';
 
 const API_URL = 'https://disease.sh/v3/covid-19/countries';
 const API_ALL_URL = 'https://disease.sh/v3/covid-19/all';
@@ -88,7 +88,7 @@ function App() {
 
         {/* INFO STATISTICS BELOW HEADER */}
         <div className="app__stats">
-          <InfoBox title="Coronavirus cases" cases={countryInfo.todayCases} total={countryInfo.cases}/>
+          <InfoBox title="Coronavirus cases" cases={prettyPrintStat(countryInfo.todayCases)} total={countryInfo.cases}/>
           <InfoBox title="Recovered" cases={countryInfo.todayRecovered} total={countryInfo.recovered}/>
           <InfoBox title="Deaths" cases={countryInfo.todayDeaths} total={countryInfo.deaths}/>
         </div>
