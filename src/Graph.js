@@ -47,7 +47,7 @@ const options = {
   },
 }
 
-function Graph({ casesType='cases', ...props}) {
+function Graph({ casesType='cases'}) {
   const [data, setData] = useState({});
 
   const API_CHART_URL = 'https://disease.sh/v3/covid-19/historical/all?lastdays=120';
@@ -65,7 +65,7 @@ function Graph({ casesType='cases', ...props}) {
   }, [casesType]);
 
   return (
-    <div className={props.className}>
+    <div className="app__graph">
       {data?.length > 0 && (
         <Line 
           options={options}
@@ -79,7 +79,7 @@ function Graph({ casesType='cases', ...props}) {
         />
       )}
     </div>
-  )
+  );
 }
 
 export default Graph
