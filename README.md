@@ -16,3 +16,8 @@ to start the react frond-end app in development mode on port 8080.
 If you want to deploy run:
 
 ### `npm run build`
+
+
+## Deploy
+
+Deployed in [Covid-tracker](http://piserver.ddns.net:8080/react-covid-track)
