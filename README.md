@@ -8,16 +8,16 @@ Inspired by [ClverProgrammer](https://www.youtube.com/watch?v=cF3pIMJUZxM).
 
 Clone this repository and run:
 
-## `npm install`
+#### `npm install`
 
 to install all the npm packages in packages.json. And then run:
 
-## `npm start`
+### `npm start`
 
 to start the react frond-end app in development mode on port 8080.
 If you want to deploy run:
 
-## `npm run build`
+### `npm run build`
 
 ## Deploy
 
