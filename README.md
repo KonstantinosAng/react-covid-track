@@ -2,6 +2,8 @@
 
 A simple covid-19 tracker using the https://disease.sh and a React front-end app.
 
+Inspired by [ClverProgrammer](https://www.youtube.com/watch?v=cF3pIMJUZxM).
+
 ## Usage
 
 Clone this repository and run:
