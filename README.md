@@ -1,6 +1,7 @@
 # React Covid-19 tracker
 
-A simple covid-19 tracker using the https://disease.sh and a React front-end app.
+A simple page tracker for covid-19 using [diseash.sh](https://disease.sh) for backend API
+ and React for the front-end app.
 
 Inspired by [ClverProgrammer](https://www.youtube.com/watch?v=cF3pIMJUZxM).
 
