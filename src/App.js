@@ -99,7 +99,7 @@ function App() {
         
         {/* GRAPH */}
         <div className="app__graph_row">
-          <h3 className="app__graph_title"> Histoyry of {casesType} </h3>
+          <h3 className="app__graph_title"> History of {casesType} </h3>
           <Graph casesType={casesType}/>
         </div>
 
