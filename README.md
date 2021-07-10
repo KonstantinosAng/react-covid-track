@@ -1,7 +1,11 @@
 # React Covid-19 tracker
 
 A simple page tracker for covid-19 using [disease.sh](https://disease.sh) for backend API
- and React for the front-end app.
+and React for the front-end app.
+
+<div align="center">
+  <h1><a href="http://kangelopoulos.ddns.net/covid19"> DEMO </a></h1>
+</div>
 
 Inspired by [CleverProgrammer](https://www.youtube.com/watch?v=cF3pIMJUZxM).
 
