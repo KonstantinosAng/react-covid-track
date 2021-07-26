@@ -4,7 +4,7 @@ A simple page tracker for covid-19 using [disease.sh](https://disease.sh) for ba
 and React for the front-end app.
 
 <div align="center">
-  <h1><a href="http://kangelopoulos.ddns.net/covid19"> DEMO </a></h1>
+  <h1><a href="http://kangelopoulos.ddns.net:8080/covid19"> DEMO </a></h1>
 </div>
 
 Inspired by [CleverProgrammer](https://www.youtube.com/watch?v=cF3pIMJUZxM).
